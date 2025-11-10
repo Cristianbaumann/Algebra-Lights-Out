@@ -280,8 +280,8 @@ class LightsOutGame:
         
         # Calcular la solución para el estado inicial
         self.solucion_inicial = resolver_lights_out(self.tablero_inicial)
-        print(f"🔍 Nuevo tablero aleatorio generado")
-        print(f"🎯 Luces encendidas: {sum(sum(fila) for fila in self.tablero)}")
+        print(f"Nuevo tablero aleatorio generado")
+        print(f"Luces encendidas: {sum(sum(fila) for fila in self.tablero)}")
     
     def obtener_posicion_celda(self, mouse_pos: Tuple[int, int]) -> Optional[Tuple[int, int]]:
         """
@@ -366,7 +366,7 @@ class LightsOutGame:
         3. Retorna vector de presiones necesarias
         """
         self.solucion_calculada = resolver_lights_out(self.tablero)
-        print(f"🔍 Solución para estado actual: {self.solucion_calculada}")
+        print(f"Solución para estado actual: {self.solucion_calculada}")
         
         # Convertir vector lineal a matriz para visualización
         solucion_matriz = []
@@ -377,7 +377,7 @@ class LightsOutGame:
                 fila.append(self.solucion_calculada[idx])
             solucion_matriz.append(fila)
         
-        print("🎯 Solución por filas (estado actual):")
+        print("Solución por filas (estado actual):")
         for i, fila in enumerate(solucion_matriz):
             print(f"   Fila {i+1}: {fila}")
     
@@ -391,7 +391,7 @@ class LightsOutGame:
         if self.solucion_calculada is None:
             self.calcular_solucion()
         
-        print("🤖 Aplicando solución para estado actual...")
+        print("Aplicando solución para estado actual...")
         
         # Aplicar cada presión indicada en la solución
         for i in range(self.n):
@@ -401,7 +401,7 @@ class LightsOutGame:
                     print(f"   Presionando luz ({i},{j})")
                     self.presionar_luz(i, j)
         
-        print("✅ Solución aplicada")
+        print("Solución aplicada")
     
     def aplicar_solucion_inicial(self):
         """
@@ -411,10 +411,10 @@ class LightsOutGame:
         que llevará directamente a todas las luces apagadas.
         """
         if self.solucion_inicial is None:
-            print("❌ No hay solución inicial calculada")
+            print("No hay solución inicial calculada")
             return
         
-        print("🔄 Reiniciando al estado inicial y aplicando solución...")
+        print("Reiniciando al estado inicial y aplicando solución...")
         
         # Reiniciar al estado inicial
         self.tablero = [fila[:] for fila in self.tablero_inicial]
@@ -427,7 +427,7 @@ class LightsOutGame:
                     print(f"   Presionando luz ({i},{j})")
                     self.presionar_luz(i, j)
         
-        print("✅ Solución inicial aplicada - ¡Juego resuelto!")
+        print("Solución inicial aplicada - ¡Juego resuelto!")
         
         # Resetear estados
         self.solucion_calculada = None
@@ -437,7 +437,7 @@ class LightsOutGame:
         """
         Reinicia el juego generando un tablero aleatorio completamente nuevo.
         """
-        print("🔄 Generando nuevo tablero aleatorio...")
+        print("Generando nuevo tablero aleatorio...")
         self.configurar_tablero_inicial()  # Esto genera un nuevo tablero aleatorio
         self.solucion_calculada = None
         self.mostrando_solucion = False
@@ -537,7 +537,7 @@ class LightsOutGame:
         y_info = y_botones + alto_boton + 15
         
         if self.juego_ganado:
-            texto_estado = "🎉 ¡GANASTE! Todas las luces apagadas"
+            texto_estado = "¡GANASTE! Todas las luces apagadas"
             color_estado = (0, 255, 0)
         else:
             luces_encendidas = sum(sum(fila) for fila in self.tablero)
@@ -597,25 +597,25 @@ class LightsOutGame:
                     if posicion_celda and not self.juego_ganado:
                         fila, columna = posicion_celda
                         self.presionar_luz(fila, columna)
-                        print(f"🔸 Luz presionada: ({fila},{columna})")
+                        print(f"Luz presionada: ({fila},{columna})")
         
         elif evento.type == pygame.KEYDOWN:
             if evento.key == pygame.K_r:
                 # Tecla R para reiniciar
                 self.reiniciar_juego()
-                print("🔄 Juego reiniciado")
+                print("Juego reiniciado")
             elif evento.key == pygame.K_s:
                 # Tecla S para mostrar solución
                 if not self.mostrando_solucion:
                     self.calcular_solucion()
                 self.mostrando_solucion = not self.mostrando_solucion
-                print(f"👁️ Solución {'mostrada' if self.mostrando_solucion else 'ocultada'}")
+                print(f"Solución {'mostrada' if self.mostrando_solucion else 'ocultada'}")
             elif evento.key == pygame.K_g:
                 # Tecla G para resolver juego completo
                 self.aplicar_solucion_inicial()
             elif evento.key == pygame.K_ESCAPE:
                 # ESC para salir
-                print("🔚 Saliendo del juego...")
+                print("Saliendo del juego...")
                 return False
         
         return True
@@ -628,7 +628,7 @@ class LightsOutGame:
             reloj = pygame.time.Clock()
             ejecutando = True
             
-            print("🎮 LIGHTS OUT - ÁLGEBRA APLICADA")
+            print("LIGHTS OUT - ÁLGEBRA APLICADA")
             print("=" * 50)
             print("Controles:")
             print("  • Click: presionar luz")
@@ -661,12 +661,12 @@ class LightsOutGame:
                 # Controlar FPS
                 reloj.tick(60)
             
-            print("🔚 Cerrando juego...")
+            print("Cerrando juego...")
             
         except KeyboardInterrupt:
-            print("\n🔚 Juego interrumpido por el usuario")
+            print("\nJuego interrumpido por el usuario")
         except Exception as e:
-            print(f"❌ Error en el bucle principal: {e}")
+            print(f"Error en el bucle principal: {e}")
             import traceback
             traceback.print_exc()
         finally:
@@ -684,7 +684,7 @@ def main():
     """
     Función principal que inicia el juego.
     """
-    print("🔷 LIGHTS OUT - PROYECTO ÁLGEBRA APLICADA")
+    print("LIGHTS OUT - PROYECTO ÁLGEBRA APLICADA")
     print("Implementación con Pygame + Resolución Algebraica mod 2")
     print()
     
@@ -712,7 +712,7 @@ def main():
         print("\nOperación cancelada")
         return
     
-    print(f"🎯 Iniciando juego {tamano}×{tamano}")
+    print(f"Iniciando juego {tamano}×{tamano}")
     print()
     
     try:
@@ -720,11 +720,11 @@ def main():
         juego = LightsOutGame(tamano)
         juego.ejecutar()
     except pygame.error as e:
-        print(f"❌ Error de Pygame: {e}")
+        print(f"Error de Pygame: {e}")
         print("Asegúrese de que Pygame esté instalado correctamente:")
         print("   pip install pygame")
     except Exception as e:
-        print(f"❌ Error inesperado: {e}")
+        print(f"Error inesperado: {e}")
         import traceback
         traceback.print_exc()
 

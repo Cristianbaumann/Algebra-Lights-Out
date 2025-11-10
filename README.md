@@ -106,7 +106,7 @@ El programa muestra:
 ```
 Tablero inicial:      Vector solución:      Tablero final:
   1 0 1                [1, 1, 1]              0 0 0
-  0 1 0         →      [1, 1, 1]      →      0 0 0  ✅
+  0 1 0         →      [1, 1, 1]      →       0 0 0  ✅
   1 0 1                [1, 1, 1]              0 0 0
 ```
 
@@ -151,13 +151,7 @@ python lights_out_pygame.py
 🎯 **Controles múltiples**: Mouse y teclado (R=reiniciar, S=solución, A=auto-resolver)  
 🎯 **Verificación visual**: Indicador de victoria cuando todas las luces están apagadas  
 
-### Integración Algebraica
 
-La interfaz Pygame integra completamente el módulo algebraico:
-- **Construcción del sistema**: `construir_sistema()` genera matriz A y vector b
-- **Resolución mod 2**: `gauss_mod2()` aplica eliminación sin pivoteo
-- **Visualización**: Las luces verdes muestran qué presionar según la solución
-- **Aplicación automática**: Presiona secuencialmente las luces indicadas
 
 ## 📁 Archivos
 
@@ -177,6 +171,5 @@ Este proyecto fue desarrollado como parte del curso de **Álgebra Aplicada**, de
 
 ---
 
-**Autor**: Cristian Baumann  
-**Fecha**: Noviembre 2024  
+**Fecha**: Noviembre 2025  
 **Curso**: Álgebra Aplicada  

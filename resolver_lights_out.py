@@ -25,7 +25,7 @@ def resolver_lights_out(matriz, verbose=False):
     n = len(matriz)
     
     if verbose:
-        print("🔷 RESOLUCIÓN LIGHTS OUT - ÁLGEBRA APLICADA")
+        print("RESOLUCIÓN LIGHTS OUT - ÁLGEBRA APLICADA")
         print(f"Tablero inicial {n}×{n}:")
         imprimir_matriz(matriz)
         print()
@@ -34,7 +34,7 @@ def resolver_lights_out(matriz, verbose=False):
     A, b = construir_sistema(matriz, verbose)
     
     if verbose:
-        print("📐 SISTEMA LINEAL CONSTRUIDO:")
+        print("SISTEMA LINEAL CONSTRUIDO:")
         print("Matriz aumentada [A|b]:")
         imprimir_matriz_aumentada(A, b)
         print()
@@ -43,7 +43,7 @@ def resolver_lights_out(matriz, verbose=False):
     solucion = gauss_mod2(A, b, verbose)
     
     if verbose:
-        print("✅ VECTOR SOLUCIÓN:")
+        print("VECTOR SOLUCIÓN:")
         print(f"x = {solucion}")
         print("\nInterpretación (por filas del tablero):")
         for i in range(n):
@@ -71,7 +71,7 @@ def construir_sistema(matriz, verbose=False):
     b = []
     
     if verbose:
-        print("🔧 CONSTRUCCIÓN DEL SISTEMA:")
+        print("CONSTRUCCIÓN DEL SISTEMA:")
         print("Cada ecuación representa el comportamiento de una luz")
         print("Variables: x₀, x₁, ..., x_{n²-1} (por filas)")
         print()
@@ -130,7 +130,7 @@ def gauss_mod2(A, b, verbose=False):
         matriz_aumentada.append(fila)
     
     if verbose:
-        print("⚙️ ELIMINACIÓN DE GAUSS MOD 2:")
+        print("ELIMINACIÓN DE GAUSS MOD 2:")
         print("Matriz aumentada inicial:")
         imprimir_matriz_aumentada_numerada(matriz_aumentada)
         print()
@@ -138,7 +138,7 @@ def gauss_mod2(A, b, verbose=False):
     # Fase de eliminación hacia adelante
     for col in range(n):
         if verbose:
-            print(f"🔹 Procesando columna {col}:")
+            print(f"Procesando columna {col}:")
         
         # Buscar fila con 1 en esta columna (desde la diagonal hacia abajo)
         fila_pivot = None
@@ -178,7 +178,7 @@ def gauss_mod2(A, b, verbose=False):
     
     # Fase de sustitución hacia atrás
     if verbose:
-        print("🔸 SUSTITUCIÓN HACIA ATRÁS:")
+        print("SUSTITUCIÓN HACIA ATRÁS:")
     
     solucion = [0] * n
     
@@ -218,7 +218,7 @@ def verificar_solucion(matriz_inicial, solucion, verbose=False):
     matriz_final = [fila[:] for fila in matriz_inicial]
     
     if verbose:
-        print("🔍 VERIFICACIÓN DE LA SOLUCIÓN:")
+        print("VERIFICACIÓN DE LA SOLUCIÓN:")
         print("Estado inicial:")
         imprimir_matriz(matriz_inicial)
         print("\nPresiones a realizar:")
@@ -243,10 +243,10 @@ def verificar_solucion(matriz_inicial, solucion, verbose=False):
     todas_apagadas = all(matriz_final[i][j] == 0 for i in range(n) for j in range(n))
     
     if verbose:
-        print("🎯 RESULTADO FINAL:")
+        print("RESULTADO FINAL:")
         print("Estado final del tablero:")
         imprimir_matriz(matriz_final)
-        print(f"\n✅ Todas las luces apagadas: {'SÍ' if todas_apagadas else 'NO'}")
+        print(f"\nTodas las luces apagadas: {'SÍ' if todas_apagadas else 'NO'}")
     
     return todas_apagadas
 
@@ -298,7 +298,7 @@ def imprimir_matriz_aumentada_numerada(matriz_aumentada):
 
 if __name__ == "__main__":
     print("=" * 60)
-    print("🔷 LIGHTS OUT - RESOLUCIÓN CON ÁLGEBRA LINEAL MOD 2")
+    print("LIGHTS OUT - RESOLUCIÓN CON ÁLGEBRA LINEAL MOD 2")
     print("=" * 60)
     print()
     
@@ -309,7 +309,7 @@ if __name__ == "__main__":
         [1, 0, 1]
     ]
     
-    print("🎮 EJEMPLO: TABLERO 3×3")
+    print("EJEMPLO: TABLERO 3×3")
     print("Tablero inicial (1=encendida, 0=apagada):")
     imprimir_matriz(tablero_3x3)
     print()
@@ -323,5 +323,5 @@ if __name__ == "__main__":
     es_correcta = verificar_solucion(tablero_3x3, solucion, verbose=True)
     
     print("\n" + "=" * 60)
-    print(f"🏆 RESULTADO: {'ÉXITO' if es_correcta else 'ERROR'}")
+    print(f"RESULTADO: {'ÉXITO' if es_correcta else 'ERROR'}")
     print("=" * 60)
